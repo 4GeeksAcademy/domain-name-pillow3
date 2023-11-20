@@ -1,11 +1,37 @@
-/* eslint-disable */
-import "bootstrap";
-import "./style.css";
+// 4GeeksAcademy
+let pronoun = ['the', 'our'];
+let adj = ['great', 'big'];
+let noun = ['jogger', 'racoon'];
+let extension = ['.com', '.es'];
 
-import "./assets/img/rigo-baby.jpg";
-import "./assets/img/4geeks.ico";
+// My Code
+function domain(){
+  let results = [];
+  for(let p = 0; p < pronoun.length; p++){
+    for(let a = 0; a < adj.length; a++){
+      for(let n = 0; n < noun.length; n++){
+        results.push(pronoun[p] + adj[a] + noun[n] + '.com');
+      }
+    }
+  }
+  return results;
+}
 
-window.onload = function() {
-  //write your code here
-  console.log("Hello Rigo from the console!");
-};
+const resultContainer = document.getElementById('result-container');
+const results = domain();
+
+// Mostrar resultados en el HTML
+results.forEach(result => {
+  const paragraph = document.createElement('p');
+  paragraph.textContent = result;
+  resultContainer.appendChild(paragraph);
+});
+
+// thegreatjogger.com -- 1
+// thegreatracoon.com -- 2
+// ourgreatjogger.com -- 3
+// ourgreatracoon.com -- 4
+// thebigjogger.com -- 5
+// thebigracoon.com -- 6
+// ourbigjogger.com -- 7
+// ourbigracoon.com -- 8
